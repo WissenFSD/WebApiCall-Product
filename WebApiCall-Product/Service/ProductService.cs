@@ -6,6 +6,7 @@ namespace WebApiCall_Product.Service
 	public interface IProductService
 	{
 		public List<ProductDMO> GetAllProduct();
+		public ProductDMO GetProductById(int id);
 
 	}
 	public class ProductService:IProductService
@@ -18,6 +19,10 @@ namespace WebApiCall_Product.Service
 		public List<ProductDMO> GetAllProduct()
 		{
 			return _productRepository.GetAllProduct();
+		}
+		public ProductDMO GetProductById(int id)
+		{
+			return _productRepository.GetProductById(id);	
 		}
 	}
 }
