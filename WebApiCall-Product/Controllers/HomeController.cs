@@ -17,8 +17,16 @@ namespace WebApiCall_Product.Controllers
 		public IActionResult Index()
 		{
 
-			var products = _productService.GetAllProduct();
-			return View();
+			var products = _productService.GetAllProduct().Select(s => new ProductViewModel()
+			{
+				Color = s.Color,
+				ListPrice = s.ListPrice,
+				Name = s.Name,
+				ProductId = s.ProductId,
+
+
+			}).ToList();
+			return View(products);
 		}
 
 		public IActionResult Privacy()
